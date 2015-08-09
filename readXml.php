@@ -20,12 +20,6 @@ for ($i = 0; $i < count($fileList); $i++) {
  *  在数据库中读取路径
  *
  */
-$dbms = 'mysql';     //数据库类型
-$host = 'localhost'; //数据库主机名
-$dbName = 'readxml';    //使用的数据库
-$user = 'root';      //数据库连接用户名
-$pass = 'root';          //对应的密码
-$dsn = "$dbms:host=$host;dbname=$dbName";
 
 //假设$userId为1
 $userId = 1;
@@ -33,19 +27,13 @@ $userId = 1;
 $xmlList = array();
 
 try {
-    $dbh = new PDO($dsn, $user, $pass); //初始化一个PDO对象
-    echo "连接成功<br/>";
-    $sql = "select xmlPath from xmls as x where  x.userId = ?";
-
-    $sth = $dbh->prepare($sql);
-
-    $sth->execute(array($userId));
-    $result = $sth->fetchAll();
-
+    $array = array($userId);
+    $sql = "select xmlPath from xmls where xmls.userId = ?";
+    $result = sqlQuery($sql , $array);
     foreach($result as $row) {
+        //将xmlPath存起来
         $xmlList[] = $row['xmlPath'];
     }
-
     $dbh = null;
 } catch (PDOException $e) {
     die ("Error!: " . $e->getMessage() . "<br/>");
