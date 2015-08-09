@@ -5,7 +5,6 @@ include_once "lib.php";
 
 /**
  *  扫描sampleXML下所有的xml文件
- *
  */
 //设置xml的路径
 $xml_dir = "sampleXML";
@@ -18,7 +17,6 @@ for ($i = 0; $i < count($fileList); $i++) {
 
 /**
  *  在数据库中读取路径
- *
  */
 
 //假设$userId为1
@@ -40,6 +38,7 @@ try {
 }
 
 foreach( $xmlList as $xml) {
+    //判断该文件路径在sampleXML中是否存在
     if( in_array($xml,$fileList) ) {
         echo $xml;
         readXML($xml);

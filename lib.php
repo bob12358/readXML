@@ -7,6 +7,12 @@
  */
 include_once "db.php";
 
+
+/**
+ * sql语句查询封装
+ * @param $sql : sql语句
+ * @param $array ：sql语句的参数
+ */
 function sqlQuery($sql, $array)
 {
     $dbInfo = DBInfo::getInstance();
@@ -24,17 +30,21 @@ function sqlQuery($sql, $array)
     }
 }
 
+/**
+ * 读取XML
+ * @param $file 文件路径
+ */
 function readXML($file) {
     $reader = new XMLReader();
     $reader->open($file);                                                     //读取xml数据
     $i=1;
     while ($reader->read()) {                                                              //是否读取
-
+        //判断是元素
         if($reader->nodeType == XMLReader::ELEMENT){
             $nodeName = $reader->name;
             echo $nodeName." :  ";
         }
-
+        //判断是属性
         if ($reader->nodeType == XMLReader::TEXT  ) {               //判断node类型
             echo $reader->value;
         }
