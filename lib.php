@@ -7,8 +7,9 @@
  */
 include_once "db.php";
 
-function sqlQuery($sql , $array){
-    $dbInfo = new  DBInfo();
+function sqlQuery($sql, $array)
+{
+    $dbInfo = DBInfo::getInstance();
     $dsn = "$dbInfo->dbms:host=$dbInfo->host;dbname=$dbInfo->dbName";
     try {
 

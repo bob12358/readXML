@@ -29,7 +29,7 @@ $xmlList = array();
 try {
     $array = array($userId);
     $sql = "select xmlPath from xmls where xmls.userId = ?";
-    $result = sqlQuery($sql , $array);
+    $result = sqlQuery($sql, $array);
     foreach($result as $row) {
         //将xmlPath存起来
         $xmlList[] = $row['xmlPath'];
