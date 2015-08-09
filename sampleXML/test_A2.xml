@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<animal type="cat">
+	   <hastail>yes</hastail>
+	</animal>
+	<animal type="dog">
+	   <hastail>yes</hastail>
+	</animal>
+	<animal type="kakariki">
+	   <hastail>no</hastail>
+	</animal>
+ </root>
